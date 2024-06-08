@@ -14,4 +14,4 @@ jobs:
       - name: Start Build
         run: |
           mount -o remount,exec /dev/shm
-          debos debian-ostree.yaml
+          debos main.yaml
