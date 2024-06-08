@@ -1,0 +1,17 @@
+name: Build
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: godebos/debos:main
+      options: --privileged
+    steps:
+      - name: fetch repo
+        uses: actions/checkout@v3
+      - name: Start Build
+        run: |
+          mount -o remount,exec /dev/shm
+          debos debian-ostree.yaml
